@@ -7,6 +7,16 @@ class Collection extends CollectionBase
 
     /**
      * 
+     * @param mixed $values
+     * @return Collection
+     */
+    public static function collect(...$values)
+    {
+        return self::create($values);
+    }
+
+    /**
+     * 
      * @param mixed $value
      * @return Collection
      */
