@@ -2,7 +2,7 @@
 
 namespace CrystalCode\Php\Common\Collections;
 
-class Collection extends CollectionBase
+final class Collection extends CollectionBase
 {
 
     /**
