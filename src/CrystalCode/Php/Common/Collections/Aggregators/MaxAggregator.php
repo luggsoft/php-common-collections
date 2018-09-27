@@ -3,6 +3,8 @@
 namespace CrystalCode\Php\Common\Collections\Aggregators;
 
 use CrystalCode\Php\Common\Collections\AggregatorBase;
+use CrystalCode\Php\Common\Collections\Collection;
+use CrystalCode\Php\Common\Collections\CollectionInterface;
 
 class MaxAggregator extends AggregatorBase
 {
@@ -13,12 +15,14 @@ class MaxAggregator extends AggregatorBase
      */
     public function __construct(callable $mapper = null)
     {
-        $max = 0;
-        $mapper = $mapper ?: self::getDefaultValueMapper();
-        $applicator = function ($result, $value, $key) use ($mapper, &$max) {
-            $current = call_user_func($mapper, $value, $key);
-            if ($current < $max) {
-                return $result;
+        $max = null;
+        $mapper = $mapper ?: Collection::getDefaultMapper();
+        $applicator = function ($result, $value, $key, CollectionInterface $collection, &$break) use ($mapper, &$max) {
+            $current = call_user_func_array($mapper, [$value, $key, $collection, &$break]);
+            if ($max !== null) {
+                if ($current < $max) {
+                    return $result;
+                }
             }
             $max = $current;
             return $value;

@@ -33,7 +33,7 @@ class OrderEnumerator extends EnumeratorBase
      */
     public function iterate(CollectionInterface $collection)
     {
-        $orderables = $collection->enumerateWith(new MapValuesEnumerator(function ($value, $key) {
+        $orderables = $collection->enumerateWith(new MapEnumerator(function ($value, $key) {
             return (object) [
                 'key' => $key,
                 'value' => $value,

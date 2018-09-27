@@ -7,6 +7,50 @@ class Collection extends CollectionBase
 
     /**
      * 
+     * @return callable
+     */
+    public static function getDefaultMapper()
+    {
+        return function ($value) {
+            return $value;
+        };
+    }
+
+    /**
+     * 
+     * @return callable
+     */
+    public static function getDefaultKeyMapper()
+    {
+        return function ($value, $key) {
+            return $key;
+        };
+    }
+
+    /**
+     * 
+     * @return callable
+     */
+    public static function getDefaultPredicate()
+    {
+        return function ($value) {
+            return empty($value) === false;
+        };
+    }
+
+    /**
+     * 
+     * @return callable
+     */
+    public static function getDefaultKeyPredicate()
+    {
+        return function ($value, $key) {
+            return empty($key) === false;
+        };
+    }
+
+    /**
+     * 
      * @param mixed $values
      * @return Collection
      */

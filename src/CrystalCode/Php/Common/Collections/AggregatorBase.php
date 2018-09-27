@@ -6,28 +6,6 @@ abstract class AggregatorBase implements AggregatorInterface
 {
 
     /**
-     * 
-     * @return callable
-     */
-    public final static function getDefaultKeySelector()
-    {
-        return function ($item, $key) {
-            return $key;
-        };
-    }
-
-    /**
-     * 
-     * @return callable
-     */
-    public final static function getDefaultValueMapper()
-    {
-        return function ($item) {
-            return $item;
-        };
-    }
-
-    /**
      *
      * @var mixed
      */
@@ -57,9 +35,13 @@ abstract class AggregatorBase implements AggregatorInterface
      */
     public function aggregate(CollectionInterface $collection)
     {
+        $break = false;
         $result = $this->initial;
         foreach ($collection as $key => $item) {
-            $result = call_user_func($this->applicator, $result, $item, $key);
+            $result = call_user_func_array($this->applicator, [$result, $item, $key, $collection, &$break]);
+            if ($break) {
+                break;
+            }
         }
         return $result;
     }

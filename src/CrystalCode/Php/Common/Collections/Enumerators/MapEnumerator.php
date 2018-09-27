@@ -6,12 +6,12 @@ use CrystalCode\Php\Common\Collections\CollectionInterface;
 use CrystalCode\Php\Common\Collections\EnumeratorBase;
 use Iterator;
 
-class MapValuesEnumerator extends EnumeratorBase
+class MapEnumerator extends EnumeratorBase
 {
 
     public static function createFromSegments(array $segments)
     {
-        return new MapValuesEnumerator(function ($value) use ($segments) {
+        return new MapEnumerator(function ($value) use ($segments) {
             foreach ($segments as $segment) {
                 if (is_object($value)) {
                     $value = $value->{$segment};
