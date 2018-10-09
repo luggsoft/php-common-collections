@@ -30,8 +30,7 @@ abstract class AggregatorBase implements AggregatorInterface
 
     /**
      * 
-     * @param CollectionInterface $collection
-     * @return mixed
+     * {@inheritdoc}
      */
     public function aggregate(CollectionInterface $collection)
     {

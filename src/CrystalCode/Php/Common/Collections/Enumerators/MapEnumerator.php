@@ -4,11 +4,15 @@ namespace CrystalCode\Php\Common\Collections\Enumerators;
 
 use CrystalCode\Php\Common\Collections\CollectionInterface;
 use CrystalCode\Php\Common\Collections\EnumeratorBase;
-use Iterator;
 
 class MapEnumerator extends EnumeratorBase
 {
 
+    /**
+     * 
+     * @param array $segments
+     * @return MapEnumerator
+     */
     public static function createFromSegments(array $segments)
     {
         return new MapEnumerator(function ($value) use ($segments) {
@@ -44,8 +48,7 @@ class MapEnumerator extends EnumeratorBase
 
     /**
      * 
-     * @param CollectionInterface $collection
-     * @return Iterator
+     * {@inheritdoc}
      */
     public function iterate(CollectionInterface $collection)
     {

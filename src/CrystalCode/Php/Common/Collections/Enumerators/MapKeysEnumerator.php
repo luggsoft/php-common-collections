@@ -26,8 +26,7 @@ class MapKeysEnumerator extends EnumeratorBase
 
     /**
      * 
-     * @param CollectionInterface $collection
-     * @return Iterator
+     * {@inheritdoc}
      */
     public function iterate(CollectionInterface $collection)
     {

@@ -7,8 +7,7 @@ final class Aggregator extends AggregatorBase
 
     /**
      * 
-     * @param callable $applicator
-     * @param mixed $initial
+     * {@inheritdoc}
      */
     public function __construct(callable $applicator, $initial = null)
     {
