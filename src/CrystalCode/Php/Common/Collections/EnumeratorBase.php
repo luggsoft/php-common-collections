@@ -7,8 +7,7 @@ abstract class EnumeratorBase implements EnumeratorInterface
 
     /**
      * 
-     * @param CollectionInterface $collection
-     * @return CollectionInterface
+     * {@inheritdoc}
      */
     public final function enumerate(CollectionInterface $collection)
     {

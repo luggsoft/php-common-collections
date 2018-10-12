@@ -28,8 +28,7 @@ abstract class CollectionBase implements CollectionInterface
 
     /**
      * 
-     * @param EnumeratorInterface $enumerator
-     * @return CollectionInterface
+     * {@inheritdoc}
      */
     final public function enumerateWith(EnumeratorInterface $enumerator)
     {
@@ -38,8 +37,7 @@ abstract class CollectionBase implements CollectionInterface
 
     /**
      * 
-     * @param AggregatorInterface $aggregator
-     * @return mixed
+     * {@inheritdoc}
      */
     final public function aggregateWith(AggregatorInterface $aggregator)
     {
@@ -48,7 +46,7 @@ abstract class CollectionBase implements CollectionInterface
 
     /**
      * 
-     * @return Iterator
+     * {@inheritdoc}
      */
     final public function getIterator()
     {
@@ -57,7 +55,7 @@ abstract class CollectionBase implements CollectionInterface
 
     /**
      * 
-     * @return array
+     * {@inheritdoc}
      */
     final public function toArray()
     {

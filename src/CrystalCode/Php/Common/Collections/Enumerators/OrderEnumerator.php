@@ -4,7 +4,6 @@ namespace CrystalCode\Php\Common\Collections\Enumerators;
 
 use CrystalCode\Php\Common\Collections\CollectionInterface;
 use CrystalCode\Php\Common\Collections\EnumeratorBase;
-use Iterator;
 
 class OrderEnumerator extends EnumeratorBase
 {
@@ -28,8 +27,7 @@ class OrderEnumerator extends EnumeratorBase
 
     /**
      * 
-     * @param CollectionInterface $collection
-     * @return Iterator
+     * {@inheritdoc}
      */
     public function iterate(CollectionInterface $collection)
     {

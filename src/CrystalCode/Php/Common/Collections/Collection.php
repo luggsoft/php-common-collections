@@ -75,7 +75,7 @@ final class Collection extends CollectionBase
 
     /**
      * 
-     * @param mixed $iterable
+     * {@inheritdoc}
      */
     public function __construct($iterable = null)
     {
