@@ -2,8 +2,8 @@
 
 namespace CrystalCode\Php\Common\Collections\Enumerators;
 
-use CrystalCode\Php\Common\Collections\CollectionInterface;
-use CrystalCode\Php\Common\Collections\EnumeratorBase;
+use \CrystalCode\Php\Common\Collections\CollectionInterface;
+use \CrystalCode\Php\Common\Collections\EnumeratorBase;
 
 class OrderEnumerator extends EnumeratorBase
 {
@@ -29,7 +29,7 @@ class OrderEnumerator extends EnumeratorBase
      * 
      * {@inheritdoc}
      */
-    public function iterate(CollectionInterface $collection)
+    public function iterate(CollectionInterface $collection): iterable
     {
         $orderables = $collection->enumerateWith(new MapEnumerator(function ($value, $key) {
             return (object) [

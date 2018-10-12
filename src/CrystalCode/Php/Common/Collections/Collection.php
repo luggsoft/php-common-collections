@@ -9,7 +9,7 @@ final class Collection extends CollectionBase
      * 
      * @return callable
      */
-    public static function getDefaultMapper()
+    public static function getDefaultMapper(): callable
     {
         return function ($value) {
             return $value;
@@ -20,7 +20,7 @@ final class Collection extends CollectionBase
      * 
      * @return callable
      */
-    public static function getDefaultKeyMapper()
+    public static function getDefaultKeyMapper(): callable
     {
         return function ($value, $key) {
             return $key;
@@ -31,7 +31,7 @@ final class Collection extends CollectionBase
      * 
      * @return callable
      */
-    public static function getDefaultPredicate()
+    public static function getDefaultPredicate(): callable
     {
         return function ($value) {
             return empty($value) === false;
@@ -42,7 +42,7 @@ final class Collection extends CollectionBase
      * 
      * @return callable
      */
-    public static function getDefaultKeyPredicate()
+    public static function getDefaultKeyPredicate(): callable
     {
         return function ($value, $key) {
             return empty($key) === false;
@@ -54,7 +54,7 @@ final class Collection extends CollectionBase
      * @param mixed $values
      * @return Collection
      */
-    public static function collect(...$values)
+    public static function collect(...$values): Collection
     {
         return self::create($values);
     }
@@ -64,7 +64,7 @@ final class Collection extends CollectionBase
      * @param mixed $value
      * @return Collection
      */
-    public static function create($value = null)
+    public static function create($value = null): Collection
     {
         if (is_callable($value)) {
             $iterable = call_user_func($value);
@@ -77,7 +77,7 @@ final class Collection extends CollectionBase
      * 
      * {@inheritdoc}
      */
-    public function __construct($iterable = null)
+    public function __construct(iterable $iterable = null)
     {
         parent::__construct($iterable ?: []);
     }

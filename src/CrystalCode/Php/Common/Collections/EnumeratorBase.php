@@ -9,7 +9,7 @@ abstract class EnumeratorBase implements EnumeratorInterface
      * 
      * {@inheritdoc}
      */
-    public final function enumerate(CollectionInterface $collection)
+    public final function enumerate(CollectionInterface $collection): CollectionInterface
     {
         $callable = function () use ($collection) {
             foreach ($this->iterate($collection) as $key => $value) {
@@ -22,8 +22,7 @@ abstract class EnumeratorBase implements EnumeratorInterface
     /**
      * 
      * @param CollectionInterface $collection
-     * @return Iterator
+     * @return iterable
      */
-    public abstract function iterate(CollectionInterface $collection);
-
+    public abstract function iterate(CollectionInterface $collection): iterable;
 }

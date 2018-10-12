@@ -2,8 +2,8 @@
 
 namespace CrystalCode\Php\Common\Collections\Enumerators;
 
-use CrystalCode\Php\Common\Collections\CollectionInterface;
-use CrystalCode\Php\Common\Collections\EnumeratorBase;
+use \CrystalCode\Php\Common\Collections\CollectionInterface;
+use \CrystalCode\Php\Common\Collections\EnumeratorBase;
 
 class FilterEnumerator extends EnumeratorBase
 {
@@ -27,7 +27,7 @@ class FilterEnumerator extends EnumeratorBase
      * 
      * {@inheritdoc}
      */
-    public function iterate(CollectionInterface $collection)
+    public function iterate(CollectionInterface $collection): iterable
     {
         foreach ($collection as $key => $value) {
             if ((bool) call_user_func($this->predicate, $value, $key)) {
