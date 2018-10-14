@@ -2,7 +2,7 @@
 
 namespace CrystalCode\Php\Common\Collections;
 
-use \IteratorAggregate;
+use IteratorAggregate;
 
 interface CollectionInterface extends IteratorAggregate
 {
@@ -26,4 +26,5 @@ interface CollectionInterface extends IteratorAggregate
      * @return array
      */
     function toArray(): array;
+
 }

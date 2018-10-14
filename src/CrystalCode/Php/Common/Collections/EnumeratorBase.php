@@ -25,4 +25,5 @@ abstract class EnumeratorBase implements EnumeratorInterface
      * @return iterable
      */
     public abstract function iterate(CollectionInterface $collection): iterable;
+
 }

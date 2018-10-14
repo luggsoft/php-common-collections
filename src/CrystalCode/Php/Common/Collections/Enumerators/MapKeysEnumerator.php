@@ -2,8 +2,8 @@
 
 namespace CrystalCode\Php\Common\Collections\Enumerators;
 
-use \CrystalCode\Php\Common\Collections\CollectionInterface;
-use \CrystalCode\Php\Common\Collections\EnumeratorBase;
+use CrystalCode\Php\Common\Collections\CollectionInterface;
+use CrystalCode\Php\Common\Collections\EnumeratorBase;
 
 class MapKeysEnumerator extends EnumeratorBase
 {

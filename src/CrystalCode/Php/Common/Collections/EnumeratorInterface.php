@@ -11,4 +11,5 @@ interface EnumeratorInterface
      * @return CollectionInterface
      */
     function enumerate(CollectionInterface $collection): CollectionInterface;
+
 }

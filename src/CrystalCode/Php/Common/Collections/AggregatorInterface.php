@@ -11,4 +11,5 @@ interface AggregatorInterface
      * @return mixed
      */
     function aggregate(CollectionInterface $collection);
+
 }

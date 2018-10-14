@@ -12,7 +12,7 @@ class AllAggregatorTest extends TestCase
     {
         t1: {
             $result = Collection::create([1, 2, 3, 4, 5])
-                ->aggregateWith(new AllAggregator(function ($value) {
+            ->aggregateWith(new AllAggregator(function ($value) {
                 return $value >= 3;
             }));
 
@@ -21,7 +21,7 @@ class AllAggregatorTest extends TestCase
 
         t2: {
             $result = Collection::create([1, 1, 1, 1, 1])
-                ->aggregateWith(new AllAggregator(function ($value) {
+            ->aggregateWith(new AllAggregator(function ($value) {
                 return $value >= 3;
             }));
 
@@ -30,7 +30,7 @@ class AllAggregatorTest extends TestCase
 
         t3: {
             $result = Collection::create([5, 5, 5, 5, 5])
-                ->aggregateWith(new AllAggregator(function ($value) {
+            ->aggregateWith(new AllAggregator(function ($value) {
                 return $value >= 3;
             }));
 
@@ -39,7 +39,7 @@ class AllAggregatorTest extends TestCase
 
         t4: {
             $result = Collection::create([])
-                ->aggregateWith(new AllAggregator(function ($value) {
+            ->aggregateWith(new AllAggregator(function ($value) {
                 return $value >= 3;
             }));
 

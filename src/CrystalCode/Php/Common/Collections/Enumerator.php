@@ -2,7 +2,7 @@
 
 namespace CrystalCode\Php\Common\Collections;
 
-use \CrystalCode\Php\Common\NotImplementedException;
+use CrystalCode\Php\Common\NotImplementedException;
 
 final class Enumerator extends EnumeratorBase
 {

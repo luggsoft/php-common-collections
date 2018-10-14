@@ -2,7 +2,7 @@
 
 namespace CrystalCode\Php\Common\Collections;
 
-use \Iterator;
+use Iterator;
 
 abstract class CollectionBase implements CollectionInterface
 {
