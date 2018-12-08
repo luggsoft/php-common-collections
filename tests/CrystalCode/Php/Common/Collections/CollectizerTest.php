@@ -28,8 +28,6 @@ class CollectizerTest extends TestCase
         ->toCollection();
 
         $array = $collection->toArray();
-
-        var_dump($array);
     }
 
 }

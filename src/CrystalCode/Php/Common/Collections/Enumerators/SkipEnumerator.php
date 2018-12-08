@@ -5,22 +5,22 @@ namespace CrystalCode\Php\Common\Collections\Enumerators;
 use CrystalCode\Php\Common\Collections\CollectionInterface;
 use CrystalCode\Php\Common\Collections\EnumeratorBase;
 
-class FilterEnumerator extends EnumeratorBase
+class SkipEnumerator extends EnumeratorBase
 {
 
     /**
      *
-     * @var callable
+     * @var int
      */
-    private $predicate;
+    private $count;
 
     /**
      * 
-     * @param callable $predicate
+     * @param int $count
      */
-    public function __construct(callable $predicate)
+    public function __construct(int $count)
     {
-        $this->predicate = $predicate;
+        $this->count = $count;
     }
 
     /**
@@ -29,10 +29,12 @@ class FilterEnumerator extends EnumeratorBase
      */
     public function iterate(CollectionInterface $collection): iterable
     {
+        $count = $this->count;
         foreach ($collection as $key => $value) {
-            if ((bool) call_user_func($this->predicate, $value, $key)) {
-                yield $key => $value;
+            if ($count -- > 0) {
+                continue;
             }
+            yield $key => $value;
         }
     }
 

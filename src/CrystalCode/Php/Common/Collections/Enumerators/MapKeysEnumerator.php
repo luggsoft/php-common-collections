@@ -4,7 +4,6 @@ namespace CrystalCode\Php\Common\Collections\Enumerators;
 
 use CrystalCode\Php\Common\Collections\CollectionInterface;
 use CrystalCode\Php\Common\Collections\EnumeratorBase;
-use Iterator;
 
 class MapKeysEnumerator extends EnumeratorBase
 {
@@ -28,7 +27,7 @@ class MapKeysEnumerator extends EnumeratorBase
      * 
      * {@inheritdoc}
      */
-    public function iterate(CollectionInterface $collection)
+    public function iterate(CollectionInterface $collection): iterable
     {
         foreach ($collection as $key => $value) {
             yield call_user_func($this->mapper, $value, $key) => $value;

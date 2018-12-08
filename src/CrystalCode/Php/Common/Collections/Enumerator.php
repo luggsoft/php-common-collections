@@ -3,7 +3,6 @@
 namespace CrystalCode\Php\Common\Collections;
 
 use CrystalCode\Php\Common\NotImplementedException;
-use Iterator;
 
 final class Enumerator extends EnumeratorBase
 {
@@ -11,10 +10,10 @@ final class Enumerator extends EnumeratorBase
     /**
      * 
      * @param CollectionInterface $collection
-     * @return Iterator
+     * @return iterable
      * @throws NotImplementedException
      */
-    public function iterate(CollectionInterface $collection)
+    public function iterate(CollectionInterface $collection): iterable
     {
         throw new NotImplementedException();
     }

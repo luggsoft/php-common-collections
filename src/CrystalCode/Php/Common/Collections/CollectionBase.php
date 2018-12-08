@@ -15,9 +15,9 @@ abstract class CollectionBase implements CollectionInterface
 
     /**
      * 
-     * @param mixed $iterable
+     * @param iterable $iterable
      */
-    public function __construct($iterable)
+    public function __construct(iterable $iterable)
     {
         $this->iterator = call_user_func(function () use ($iterable) {
             foreach ($iterable as $key => $value) {
@@ -30,7 +30,7 @@ abstract class CollectionBase implements CollectionInterface
      * 
      * {@inheritdoc}
      */
-    final public function enumerateWith(EnumeratorInterface $enumerator)
+    final public function enumerateWith(EnumeratorInterface $enumerator): CollectionInterface
     {
         return $enumerator->enumerate($this);
     }
@@ -57,7 +57,7 @@ abstract class CollectionBase implements CollectionInterface
      * 
      * {@inheritdoc}
      */
-    final public function toArray()
+    final public function toArray(): array
     {
         return iterator_to_array($this);
     }

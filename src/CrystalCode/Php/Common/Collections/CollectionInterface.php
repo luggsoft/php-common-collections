@@ -12,7 +12,7 @@ interface CollectionInterface extends IteratorAggregate
      * @param EnumeratorInterface $enumerator
      * @return CollectionInterface
      */
-    function enumerateWith(EnumeratorInterface $enumerator);
+    function enumerateWith(EnumeratorInterface $enumerator): CollectionInterface;
 
     /**
      * 
@@ -25,6 +25,6 @@ interface CollectionInterface extends IteratorAggregate
      * 
      * @return array
      */
-    function toArray();
+    function toArray(): array;
 
 }

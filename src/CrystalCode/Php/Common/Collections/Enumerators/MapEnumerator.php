@@ -50,7 +50,7 @@ class MapEnumerator extends EnumeratorBase
      * 
      * {@inheritdoc}
      */
-    public function iterate(CollectionInterface $collection)
+    public function iterate(CollectionInterface $collection): iterable
     {
         foreach ($collection as $key => $value) {
             yield $key => call_user_func($this->mapper, $value, $key);
