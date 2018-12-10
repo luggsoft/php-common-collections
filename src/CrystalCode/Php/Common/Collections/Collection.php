@@ -2,6 +2,8 @@
 
 namespace CrystalCode\Php\Common\Collections;
 
+use CrystalCode\Php\Common\StringIterator;
+
 final class Collection extends CollectionBase
 {
 
@@ -51,12 +53,18 @@ final class Collection extends CollectionBase
 
     /**
      * 
-     * @param mixed $values
+     * @param mixed $min
+     * @param mixed $max
+     * @param mixed $step
      * @return Collection
      */
-    public static function collect(...$values): Collection
+    public static function range($min = 0, $max = PHP_INT_MAX, $step = 1): Collection
     {
-        return self::create($values);
+        return self::create(function () use ($min, $max, $step) {
+              for ($value = $min; $value <= $max; $value = $value + $step) {
+                  yield $value;
+              }
+          });
     }
 
     /**
@@ -70,12 +78,16 @@ final class Collection extends CollectionBase
             $iterable = call_user_func($value);
             return new Collection($iterable);
         }
+        if (is_string($value)) {
+            $iterable = new StringIterator($value);
+            return new Collection($iterable);
+        }
         return new Collection($value);
     }
 
     /**
      * 
-     * {@inheritdoc}
+     * @param iterable $iterable
      */
     public function __construct(iterable $iterable = null)
     {

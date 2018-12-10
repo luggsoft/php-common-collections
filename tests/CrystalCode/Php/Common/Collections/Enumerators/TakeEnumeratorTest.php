@@ -1,6 +1,6 @@
 <?php
 
-namespace CrystalCode\Php\Common\Collections\Aggregators;
+namespace CrystalCode\Php\Common\Collections\Enumerators;
 
 use CrystalCode\Php\Common\Collections\Collection;
 use PHPUnit\Framework\TestCase;

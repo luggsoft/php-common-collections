@@ -3,6 +3,9 @@
 namespace CrystalCode\Php\Common\Collections\Aggregators;
 
 use CrystalCode\Php\Common\Collections\AggregatorBase;
+use CrystalCode\Php\Common\Collections\AggregatorFactory;
+use CrystalCode\Php\Common\Collections\AggregatorFactoryInterface;
+use CrystalCode\Php\Common\Collections\Collection;
 use CrystalCode\Php\Common\Collections\CollectionInterface;
 
 final class FirstKeyAggregator extends AggregatorBase
@@ -10,18 +13,34 @@ final class FirstKeyAggregator extends AggregatorBase
 
     /**
      * 
+     * @return AggregatorFactoryInterface
+     */
+    public static function getAggregatorFactory(): AggregatorFactoryInterface
+    {
+        return new AggregatorFactory('firstKey', function (callable $predicate = null) {
+            return new FirstAggregator($predicate);
+        });
+    }
+
+    /**
+     * 
      * @param callable $predicate
      */
-    public function __construct(callable $predicate)
+    public function __construct(callable $predicate = null)
     {
+        if ($predicate === null) {
+            $predicate = Collection::getDefaultKeyPredicate();
+        }
+
         $applicator = function ($result, $value, $key, CollectionInterface $collection, &$break) use ($predicate) {
-            if ($result === null) {
-                if ((bool) call_user_func_array($predicate, [$value, $key, $collection, &$break])) {
-                    return $key;
-                }
+            if ((bool) call_user_func_array($predicate, [$value, $key, $collection, &$break])) {
+                $break = true;
+                return $key;
             }
+
             return $result;
         };
+
         parent::__construct($applicator, null);
     }
 

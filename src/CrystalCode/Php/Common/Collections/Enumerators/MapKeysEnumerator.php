@@ -2,11 +2,25 @@
 
 namespace CrystalCode\Php\Common\Collections\Enumerators;
 
+use CrystalCode\Php\Common\Collections\Collection;
 use CrystalCode\Php\Common\Collections\CollectionInterface;
 use CrystalCode\Php\Common\Collections\EnumeratorBase;
+use CrystalCode\Php\Common\Collections\EnumeratorFactory;
+use CrystalCode\Php\Common\Collections\EnumeratorFactoryInterface;
 
 class MapKeysEnumerator extends EnumeratorBase
 {
+
+    /**
+     * 
+     * @return EnumeratorFactoryInterface
+     */
+    public static function getEnumeratorFactory(): EnumeratorFactoryInterface
+    {
+        return new EnumeratorFactory('mapKeys', function (callable $mapper = null) {
+            return new MapKeysEnumerator($mapper);
+        });
+    }
 
     /**
      *
@@ -18,8 +32,12 @@ class MapKeysEnumerator extends EnumeratorBase
      * 
      * @param callable $mapper
      */
-    public function __construct(callable $mapper)
+    public function __construct(callable $mapper = null)
     {
+        if ($mapper === null) {
+            $mapper = Collection::getDefaultKeyMapper();
+        }
+
         $this->mapper = $mapper;
     }
 
