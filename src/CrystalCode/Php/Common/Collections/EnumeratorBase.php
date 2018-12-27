@@ -7,6 +7,12 @@ abstract class EnumeratorBase implements EnumeratorInterface
 
     /**
      * 
+     * @return EnumeratorFactoryInterface
+     */
+    abstract static function getEnumeratorFactory(): EnumeratorFactoryInterface;
+
+    /**
+     * 
      * {@inheritdoc}
      */
     public final function enumerate(CollectionInterface $collection): CollectionInterface

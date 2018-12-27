@@ -8,43 +8,60 @@ use PHPUnit\Framework\TestCase;
 class AllAggregatorTest extends TestCase
 {
 
-    public function testSimple()
+    /**
+     * 
+     * @return void
+     */
+    public function test1(): void
     {
-        t1: {
-            $result = Collection::create([1, 2, 3, 4, 5])
-            ->aggregateWith(new AllAggregator(function ($value) {
-                return $value >= 3;
-            }));
+        $result = Collection::create([1, 2, 3, 4, 5])
+          ->aggregateWith(new AllAggregator(function ($value) {
+              return $value >= 3;
+          }));
 
-            $this->assertFalse($result);
-        }
+        $this->assertFalse($result);
+    }
 
-        t2: {
-            $result = Collection::create([1, 1, 1, 1, 1])
-            ->aggregateWith(new AllAggregator(function ($value) {
-                return $value >= 3;
-            }));
+    /**
+     * 
+     * @return void
+     */
+    public function test2(): void
+    {
+        $result = Collection::create([1, 1, 1, 1, 1])
+          ->aggregateWith(new AllAggregator(function ($value) {
+              return $value >= 3;
+          }));
 
-            $this->assertFalse($result);
-        }
+        $this->assertFalse($result);
+    }
 
-        t3: {
-            $result = Collection::create([5, 5, 5, 5, 5])
-            ->aggregateWith(new AllAggregator(function ($value) {
-                return $value >= 3;
-            }));
+    /**
+     * 
+     * @return void
+     */
+    public function test3(): void
+    {
+        $result = Collection::create([5, 5, 5, 5, 5])
+          ->aggregateWith(new AllAggregator(function ($value) {
+              return $value >= 3;
+          }));
 
-            $this->assertTrue($result);
-        }
+        $this->assertTrue($result);
+    }
 
-        t4: {
-            $result = Collection::create([])
-            ->aggregateWith(new AllAggregator(function ($value) {
-                return $value >= 3;
-            }));
+    /**
+     * 
+     * @return void
+     */
+    public function test4(): void
+    {
+        $result = Collection::create([])
+          ->aggregateWith(new AllAggregator(function ($value) {
+              return $value >= 3;
+          }));
 
-            $this->assertTrue($result);
-        }
+        $this->assertTrue($result);
     }
 
 }

@@ -6,6 +6,12 @@ abstract class AggregatorBase implements AggregatorInterface
 {
 
     /**
+     * 
+     * @return AggregatorFactoryInterface
+     */
+    abstract static function getAggregatorFactory(): AggregatorFactoryInterface;
+
+    /**
      *
      * @var mixed
      */

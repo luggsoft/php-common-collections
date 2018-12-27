@@ -17,7 +17,7 @@ final class LastKeyAggregator extends AggregatorBase
      */
     public static function getAggregatorFactory(): AggregatorFactoryInterface
     {
-        return new AggregatorFactory('last', function (callable $predicate = null) {
+        return new AggregatorFactory('lastKey', function (callable $predicate = null) {
             return new LastKeyAggregator($predicate);
         });
     }

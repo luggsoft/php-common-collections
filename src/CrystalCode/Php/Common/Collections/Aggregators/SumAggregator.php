@@ -18,7 +18,7 @@ final class SumAggregator extends AggregatorBase
     public static function getAggregatorFactory(): AggregatorFactoryInterface
     {
         return new AggregatorFactory('sum', function (callable $mapper = null, $initial = 0) {
-            return new MinAggregator($mapper, $initial);
+            return new SumAggregator($mapper, $initial);
         });
     }
 
@@ -33,7 +33,7 @@ final class SumAggregator extends AggregatorBase
             $mapper = Collection::getDefaultMapper();
         }
 
-        $applicator = function ($result, $value, $key, CollectionInterface $collection, &$break) use ($mapper) {
+        $applicator = function ($result, $value, $key, CollectionInterface $collection, bool &$break) use ($mapper) {
             return $result + call_user_func_array($mapper, [$value, $key, $collection, &$break]);
         };
 
