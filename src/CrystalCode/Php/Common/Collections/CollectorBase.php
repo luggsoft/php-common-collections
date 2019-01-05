@@ -3,6 +3,7 @@
 namespace CrystalCode\Php\Common\Collections;
 
 use CrystalCode\Php\Common\OperationException;
+use Traversable;
 
 abstract class CollectorBase implements CollectorInterface
 {
@@ -128,6 +129,15 @@ abstract class CollectorBase implements CollectorInterface
     final public function getCollection(): CollectionInterface
     {
         return $this->collection;
+    }
+
+    /**
+     * 
+     * @return Traversable
+     */
+    final public function getIterator(): Traversable
+    {
+        return $this->collection->getIterator();
     }
 
 }

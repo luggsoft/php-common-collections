@@ -24,6 +24,18 @@ final class Collector extends CollectorBase
 
     /**
      * 
+     * @param string $name
+     * @param array $arguments
+     * @return mixed
+     */
+    public static function __callStatic(string $name, array $arguments)
+    {
+        $value = array_shift($arguments);
+        return static::create($value)->apply($name, ...$arguments);
+    }
+
+    /**
+     * 
      * @param mixed $min
      * @param mixed $max
      * @param mixed $step

@@ -2,7 +2,9 @@
 
 namespace CrystalCode\Php\Common\Collections;
 
-interface CollectorInterface
+use IteratorAggregate;
+
+interface CollectorInterface extends IteratorAggregate
 {
 
     /**
